@@ -5,7 +5,7 @@ Project 2
 Pixel Fight!
 */
 let colorSelected = "black";
-let currentUpdateID = 0;
+let currentUpdateID = 1;
 window.onload = function () {
     for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
