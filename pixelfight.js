@@ -5,6 +5,7 @@ Project 2
 Pixel Fight!
 */
 let colorSelected = "black";
+let currentUpdateID = 0;
 window.onload = function () {
     for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
@@ -55,7 +56,10 @@ function btnClick(event) {
 // rather than reupdating all the time for no reason.
 function gridChangeCheck() {
     let reload = false;
-
+    fetch("./pixelfight_API.php?update-id=" + currentUpdateID)
+        .then(function (response) {
+            console.log(response);
+        });
     if (reload) {
         window.location.reload(true);
     }
