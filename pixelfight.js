@@ -33,6 +33,7 @@ async function sendBoardRequest(first){
                 buttons[i].className = data[i];
             }
             if(first){
+                console.log("onclick set");
                 buttons[i].onclick = btnClick;
             }
         }
