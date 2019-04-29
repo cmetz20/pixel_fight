@@ -24,9 +24,9 @@ function updateButtonGrid(){
         while($row = mysqli_fetch_row($result)){
             // for each row in mysql table
             $count++;
-            $winning_index = 3;
-            $winning_votes = $row[3];
-            for($i = 2; $i < 13; $i++){
+            $winning_index = 2;
+            $winning_votes = $row[2];
+            for($i = 1; $i < 12; $i++){
                 if($row[$i] > $winning_votes){
                     $winning_index = $i;
                     $winning_votes = $row[$i];
@@ -34,37 +34,37 @@ function updateButtonGrid(){
             }
             $color = "white";
             switch($winning_index){
-                case 2: 
+                case 1: 
                     $color = "black";
                     break;
-                case 3: 
+                case 2: 
                     $color = "white";
                     break;
-                case 4: 
+                case 3: 
                     $color = "gray";
                     break;
-                case 5: 
+                case 4: 
                     $color = "brown";
                     break;
-                case 6: 
+                case 5: 
                     $color = "red";
                     break;
-                case 7: 
+                case 6: 
                     $color = "orange";
                     break;
-                case 8: 
+                case 7: 
                     $color = "yellow";
                     break;
-                case 9: 
+                case 8: 
                     $color = "green";
                     break;
-                case 10: 
+                case 9: 
                     $color = "blue";
                     break;
-                case 11: 
+                case 10: 
                     $color = "purple";
                     break;
-                case 12: 
+                case 11: 
                     $color = "pink";
                     break;
                  default:
