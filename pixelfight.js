@@ -31,9 +31,10 @@ async function sendBoardRequest(){
     try {
         const resp = await fetch("./pixelfight-api.php?board-request");
         var data = await resp.json();
+        console.log(data);
         let buttons = document.getElementsByTagName("button");
-        for(let i = 0; i < data.body.length; i++){
-            console.log(data.body[i]);
+        for(let i = 0; i < data.length; i++){
+            console.log(data[i]);
         }
         setInterval(gridChangeCheck, 1000);
     } catch (err) {
