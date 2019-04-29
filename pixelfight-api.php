@@ -1,7 +1,7 @@
 <?php
 include("../inc/dbinfo.inc");
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["body"])){
+if(isset($_POST["body"])){
     $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
     $database = mysqli_select_db($connection, DB_DATABASE);
     $decoded_ary = explode("_", $_POST["body"]);
