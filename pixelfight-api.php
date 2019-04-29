@@ -1,7 +1,6 @@
 <?php
 include("../inc/dbinfo.inc");
 
-        
 // Looked up way to check if a POST has been sent to this php file
 // When JSON sends a POST, get contents and then increment button DB
 // function is called
@@ -118,6 +117,5 @@ if(isset($_GET["board-request"])){
         echo json_encode($ary);
     }
 }
-
 
 ?>
