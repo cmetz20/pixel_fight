@@ -5,7 +5,7 @@ if(isset($_GET["update-id"])){
     $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
     $database = mysqli_select_db($connection, DB_DATABASE);
 
-    $query = "SELECT * FROM `update-table`;";
+    $query = "SELECT * FROM `update-table`";
     $result = mysqli_query($connection,$query);
     if(!$result){
         echo("<p>Error.</p>");
