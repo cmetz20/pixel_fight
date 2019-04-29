@@ -56,7 +56,7 @@ function btnClick(event) {
 // rather than reupdating all the time for no reason.
 function gridChangeCheck() {
     let reload = false;
-    fetch("./pixelfight-API.php")
+    fetch("./pixelfight-api.php?update-id=" + currentUpdateID)
         .then(function (response) {
             console.log(response);
         });
