@@ -70,7 +70,7 @@ async function btnClick(event) {
 async function getIntitialUpdateID() {
     try {
         const resp = await fetch("./pixelfight-api.php?update-id");
-        var data = await resp.json();
+        var data = await JSON.parse(resp);
         currentUpdateID = data.body;
         document.getElementById("board-version").innerHTML = currentUpdateID;
         setInterval(gridChangeCheck, 1000);
