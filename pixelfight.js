@@ -54,9 +54,11 @@ function btnClick(event) {
 // for grid update. Only has to check an INT
 // rather than reupdating all the time for no reason.
 function gridChangeCheck() {
+    let reload = false;
 
-
-    window.location.reload(true)
+    if (reload) {
+        window.location.reload(true);
+    }
 }
 
 // creates a string with the selected color for POST
