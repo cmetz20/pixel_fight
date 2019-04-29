@@ -1,7 +1,14 @@
 <?php
 include("../inc/dbinfo.inc");
 
-if(isset($_POST["body"])){
+        
+// Looked up way to check if a POST has been sent to this php file
+// When JSON sends a POST, get contents and then increment button DB
+// function is called
+$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+if ($contentType === "application/json") {
+    $content = file_get_contents("php://input");
+
     $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
     $database = mysqli_select_db($connection, DB_DATABASE);
     $decoded_ary = explode("_", $_POST["body"]);

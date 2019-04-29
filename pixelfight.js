@@ -49,7 +49,6 @@ async function sendBoardRequest(first){
 function btnClick(event) {
     // this.id = current btn and also point val in database
     let message = this.id + getColorSelection();
-    console.log(message);
     fetch("./pixelfight-api.php", {
             method: "POST",
             headers: {
