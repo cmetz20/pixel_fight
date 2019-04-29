@@ -34,37 +34,37 @@ function updateButtonGrid(){
             }
             $color = "white";
             switch($winning_index){
-                case 1: 
+                case 2: 
                     $color = "black";
                     break;
-                case 2: 
+                case 3: 
                     $color = "white";
                     break;
-                case 3: 
+                case 4: 
                     $color = "gray";
                     break;
-                case 4: 
+                case 5: 
                     $color = "brown";
                     break;
-                case 5: 
+                case 6: 
                     $color = "red";
                     break;
-                case 6: 
+                case 7: 
                     $color = "orange";
                     break;
-                case 7: 
+                case 8: 
                     $color = "yellow";
                     break;
-                case 8: 
+                case 9: 
                     $color = "green";
                     break;
-                case 9: 
+                case 10: 
                     $color = "blue";
                     break;
-                case 10: 
+                case 11: 
                     $color = "purple";
                     break;
-                case 11: 
+                case 12: 
                     $color = "pink";
                     break;
                  default:
