@@ -7,6 +7,7 @@ include("../inc/dbinfo.inc");
 // function is called
 $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 if ($contentType === "application/json") {
+    $success = true;
     $content = file_get_contents("php://input");
 
     $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
@@ -17,18 +18,16 @@ if ($contentType === "application/json") {
 
     $result = mysqli_query($connection,$query);
     if(!$result){
-        echo("<p>Error.</p>");
-        echo(mysqli_errno($connection));
+        $success = false;
     }
 
     $query = "UPDATE `update-table` SET `update-id` = `update-id` + 1 WHERE `update-id` = `update-id`;";
     $result = mysqli_query($connection,$query);
     if(!$result){
-        echo("<p>Error.</p>");
-        echo(mysqli_errno($connection));
+        $success = false;
     }
     echo json_encode(array("type" => "button-click", 
-                                "body" => "success"));
+                                "body" => strval($success)));
 }
 
 if(isset($_GET["update-id"])){

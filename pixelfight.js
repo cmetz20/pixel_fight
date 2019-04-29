@@ -50,7 +50,6 @@ async function btnClick(event) {
     try {
         // this.id = current btn and also point val in database
         let message = this.id + getColorSelection();
-        console.log(message);
         const resp = await fetch("./pixelfight-api.php", {
             method: "POST",
             headers: {
@@ -70,7 +69,7 @@ async function btnClick(event) {
 async function getIntitialUpdateID() {
     try {
         const resp = await fetch("./pixelfight-api.php?update-id");
-        var data = await JSON.parse(resp);
+        var data = await resp.json();
         currentUpdateID = data.body;
         document.getElementById("board-version").innerHTML = currentUpdateID;
         setInterval(gridChangeCheck, 1000);
