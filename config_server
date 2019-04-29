@@ -1,7 +1,0 @@
-#!/bin/bash
-sudo yum update -y
-sudo yum install -y httpd24 php70 mysql56-server php70-mysqlnd
-sudo service httpd start
-sudo chkconfig httpd on
-sudo usermod -a -G apache ec2-user
-echo "Need to re-login as ec2-user now, permissions updated"
