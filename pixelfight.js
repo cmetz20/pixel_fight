@@ -47,6 +47,7 @@ async function sendBoardRequest(first){
 // to appropriately update database
 // function then reloads page to show updated DB
 function btnClick(event) {
+    
     // this.id = current btn and also point val in database
     let message = this.id + getColorSelection();
     fetch("./pixelfight-api.php", {
@@ -57,8 +58,10 @@ function btnClick(event) {
             },
             body: message
         })
-        .then(
+        .then(function(response){
+            console.log(response);
             sendBoardRequest()
+        }
         );
 }
 
