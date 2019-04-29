@@ -24,7 +24,7 @@ function updateButtonGrid(){
         while($row = mysqli_fetch_row($result)){
             // for each row in mysql table
             $count++;
-            $winning_index = 4;
+            $winning_index = 3;
             $winning_votes = $row[3];
             for($i = 2; $i < 13; $i++){
                 if($row[$i] > $winning_votes){
