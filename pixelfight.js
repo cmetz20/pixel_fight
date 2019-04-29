@@ -1,11 +1,11 @@
 /*
 Christopher Metz
 CSC 436 - Cloud Computing
-Project 2
+Project 3
 Pixel Fight!
 */
 let colorSelected = "black";
-let currentUpdateID = 1;
+let currentUpdateID = -1;
 window.onload = function () {
     for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
@@ -23,8 +23,7 @@ window.onload = function () {
         document.getElementById(cookieColor).checked = true;
         setColor(cookieColor);
     }
-
-    setInterval(gridChangeCheck, 1000);
+    currentUpdateID = getIntitialUpdateID();
 }
 
 // function is called when any button is clicked,
@@ -48,26 +47,39 @@ function btnClick(event) {
                 window.location.reload(true)
             }, 1000)
         );
+}
 
+async function getIntitialUpdateID(){
+    try {
+        const resp = await fetch("./pixelfight-api.php?update-id");
+        var data = await resp.json();
+        currentUpdateID = data.body;
+        setInterval(gridChangeCheck, 1000);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 // function is called every second, checking last ID
 // for grid update. Only has to check an INT
 // rather than reupdating all the time for no reason.
 async function gridChangeCheck() {
-    try {
-        const resp = await fetch("./pixelfight-api.php?update-id=" + currentUpdateID);
-        var data = await resp.json();
-        if(data.type === "update-id"){
-            if(data.body === currentUpdateID.toString()){
-                console.log("No updates to DB");
+    if(currentUpdateID != -1){
+        try {
+            const resp = await fetch("./pixelfight-api.php?update-id");
+            var data = await resp.json();
+            if(data.type === "update-id"){
+                if(data.body === currentUpdateID){
+                    console.log("No updates to DB");
+                }
+                else{
+
+                    window.location.reload(true);
+                }
             }
-            else{
-                window.location.reload(true);
-            }
+        } catch (err) {
+            console.log(err);
         }
-    } catch (err) {
-        console.log(err);
     }
 }
 

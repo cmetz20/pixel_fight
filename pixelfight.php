@@ -1,7 +1,7 @@
 <!--
 Christopher Metz
 CSC 436 - Cloud Computing
-Project 2
+Project 3
 Pixel Fight!
 -->
 
