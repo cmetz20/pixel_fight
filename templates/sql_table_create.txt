@@ -1,7 +1,11 @@
 drop table `button-table`;
+drop table `update-table`;
+CREATE TABLE `update-table` (
+	`update-id` INT DEFAULT 1,
+	PRIMARY KEY(`update-id`)
+);
 CREATE TABLE `button-table` (
 	`point` VARCHAR(10) NOT NULL,
-	`update-id` INT DEFAULT 1,
 	`black-votes` INT DEFAULT 0,
 	`white-votes` INT DEFAULT 0,
 	`gray-votes` INT DEFAULT 0,
@@ -15,6 +19,7 @@ CREATE TABLE `button-table` (
 	`pink-votes` INT DEFAULT 0,
 	PRIMARY KEY (`point`)
 );
+INSERT INTO `update-table` (update-id) VALUES(1);
 INSERT INTO `button-table` (point) VALUES("btn-0-0");
 INSERT INTO `button-table` (point) VALUES("btn-0-1");
 INSERT INTO `button-table` (point) VALUES("btn-0-2");
