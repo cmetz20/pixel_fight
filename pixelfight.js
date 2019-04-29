@@ -7,6 +7,7 @@ Pixel Fight!
 let colorSelected = "black";
 let currentUpdateID = -1;
 window.onload = function () {
+    sendBoardRequest();
     for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
             document.getElementById("btn-" + i + "-" + j).onclick = btnClick;
@@ -24,6 +25,20 @@ window.onload = function () {
         setColor(cookieColor);
     }
     currentUpdateID = getIntitialUpdateID();
+}
+
+async function sendBoardRequest(){
+    try {
+        const resp = await fetch("./pixelfight-api.php?board-request");
+        var data = await resp.json();
+        let buttons = document.getElementsByTagName("button");
+        for(let i = 0; i < data.body.length; i++){
+            console.log(data.body[i]);
+        }
+        setInterval(gridChangeCheck, 1000);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 // function is called when any button is clicked,
