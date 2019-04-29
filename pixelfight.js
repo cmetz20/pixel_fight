@@ -24,7 +24,7 @@ window.onload = function () {
         setColor(cookieColor);
     }
 
-    setTimeout(gridChangeCheck, 1000);
+    setInterval(gridChangeCheck, 1000);
 }
 
 // function is called when any button is clicked,
