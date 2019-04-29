@@ -27,7 +27,8 @@ if ($contentType === "application/json") {
         echo("<p>Error.</p>");
         echo(mysqli_errno($connection));
     }
-    echo "POST received";
+    echo echo json_encode(array("type" => "update-id", 
+                                "body" => "success"));
 }
 
 if(isset($_GET["update-id"])){

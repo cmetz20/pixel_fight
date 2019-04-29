@@ -46,23 +46,21 @@ async function sendBoardRequest(first){
 // creates a POST message and sends it to the PHP
 // to appropriately update database
 // function then reloads page to show updated DB
-function btnClick(event) {
+async function btnClick(event) {
     
     // this.id = current btn and also point val in database
     let message = this.id + getColorSelection();
-    fetch("./pixelfight-api.php", {
+    const resp = await fetch("./pixelfight-api.php", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: message
-        })
-        .then(function(response){
-            console.log(response);
-            sendBoardRequest()
-        }
-        );
+        });
+    var data = await resp.json();
+    console.log(data.body);
+    sendBoardRequest();
 }
 
 async function getIntitialUpdateID(){
