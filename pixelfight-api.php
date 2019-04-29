@@ -1,3 +1,3 @@
 <?php
-echo json_encode("ENTERED API");
+echo ("ENTERED API");
 ?>
