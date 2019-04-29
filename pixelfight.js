@@ -25,6 +25,7 @@ window.onload = function () {
         setColor(cookieColor);
     }
     currentUpdateID = getIntitialUpdateID();
+    setInterval(gridChangeCheck, 500);
 }
 
 async function sendBoardRequest(){
@@ -37,7 +38,6 @@ async function sendBoardRequest(){
                 buttons[i].className = data[i];
             }
         }
-        setInterval(gridChangeCheck, 500);
     } catch (err) {
         console.log(err);
     }
