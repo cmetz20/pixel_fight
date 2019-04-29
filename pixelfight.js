@@ -60,7 +60,7 @@ function gridChangeCheck() {
         .then(response = response.json())
         .then(function(response){
             console.log(response);
-        };
+        });
     if (reload) {
         window.location.reload(true);
     }
