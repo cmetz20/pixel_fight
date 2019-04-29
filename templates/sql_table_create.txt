@@ -1,5 +1,7 @@
+drop table `button-table`;
 CREATE TABLE `button-table` (
 	`point` VARCHAR(10) NOT NULL,
+	`update-id` INT DEFAULT 1,
 	`black-votes` INT DEFAULT 0,
 	`white-votes` INT DEFAULT 0,
 	`gray-votes` INT DEFAULT 0,

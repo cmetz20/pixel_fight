@@ -26,7 +26,7 @@ function updateButtonGrid(){
             $count++;
             $winning_index = 2;
             $winning_votes = $row[2];
-            for($i = 1; $i < 12; $i++){
+            for($i = 2; $i < 13; $i++){
                 if($row[$i] > $winning_votes){
                     $winning_index = $i;
                     $winning_votes = $row[$i];
