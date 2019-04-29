@@ -58,7 +58,7 @@ function gridChangeCheck() {
     let reload = false;
     fetch("./pixelfight-api.php?update-id=" + currentUpdateID)
         .then(function (response) {
-            console.log(json.parse(response));
+            console.log(json.parse(response).PromiseValue);
         });
     if (reload) {
         window.location.reload(true);
