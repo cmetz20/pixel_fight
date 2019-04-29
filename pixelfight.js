@@ -8,20 +8,17 @@ let colorSelected = "black";
 let currentUpdateID = -1;
 window.onload = function () {
     sendBoardRequest(true);
-    // all buttons are assigned click listener
-    let cookieColor = document.cookie.split(";");
-    cookieColor = cookieColor[cookieColor.length - 1].trim();
-    // select previously selected color by grabbing it from cookies
-    if (cookieColor != "") {
-        console.log(cookieColor);
-        // user has already set a color in radio buttons, re-select that color
-        document.getElementById("black").checked = false;
-        document.getElementById(cookieColor).checked = true;
-        setColor(cookieColor);
-    }
     getUpdateID();
     setInterval(gridChangeCheck, 500);
+    registerInputs();
 };
+
+function registerInputs(){
+    let inputs = document.getElementsByTagName("input");
+    for(let i = 0; i < inputs.length; i++){
+        inputs[i].onclick = setColor();
+    }
+}
 
 async function sendBoardRequest(first) {
     try {
@@ -103,7 +100,6 @@ function getColorSelection() {
 
 // sets global variable colorSelected
 // also adds the value to the end of the cookie var
-function setColor(value) {
-    document.cookie = value;
-    colorSelected = value;
+function setColor() {
+    colorSelected = this.value;
 }
