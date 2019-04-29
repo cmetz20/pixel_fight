@@ -31,10 +31,11 @@ async function sendBoardRequest(){
     try {
         const resp = await fetch("./pixelfight-api.php?board-request");
         var data = await resp.json();
-        console.log(data);
         let buttons = document.getElementsByTagName("button");
         for(let i = 0; i < data.length; i++){
-            console.log(data[i]);
+            if(buttons[i].className !== data[i]){
+                buttons[i].className = data[i];
+            }
         }
         setInterval(gridChangeCheck, 1000);
     } catch (err) {
@@ -59,9 +60,7 @@ function btnClick(event) {
             body: message
         })
         .then(
-            setTimeout(function () {
-                window.location.reload(true)
-            }, 1000)
+            sendBoardRequest()
         );
 }
 
@@ -90,7 +89,7 @@ async function gridChangeCheck() {
                     console.log("No updates to DB");
                 }
                 else{
-                    window.location.reload(true);
+                    sendBoardRequest();
                 }
             }
         } catch (err) {
