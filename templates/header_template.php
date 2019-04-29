@@ -6,6 +6,5 @@
     </head>
     <body>
         <h1>Pixel Fight!</h1>
-        <h2>Board Version ID<h2>
-        <p id="board-version">#</p>
+        <p hidden id="board-version">#</p>
         
