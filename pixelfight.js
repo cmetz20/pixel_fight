@@ -58,7 +58,8 @@ async function gridChangeCheck() {
     let reload = false;
     try {
         const resp = await fetch("./pixelfight-api.php?update-id=" + currentUpdateID);
-        console.log(resp);
+        var data = await resp.json();
+        console.log(data);
     } catch (err) {
         console.log(err);
     }
