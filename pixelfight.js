@@ -55,16 +55,20 @@ function btnClick(event) {
 // for grid update. Only has to check an INT
 // rather than reupdating all the time for no reason.
 async function gridChangeCheck() {
-    let reload = false;
     try {
         const resp = await fetch("./pixelfight-api.php?update-id=" + currentUpdateID);
         var data = await resp.json();
-        console.log(data);
+        if(data.type === "update-id"){
+            if(data.body === currentUpdateID.toString()){
+                console.log("No updates to DB");
+            }
+            else{
+                window.location.reload(true);
+            }
+        }
+        
     } catch (err) {
         console.log(err);
-    }
-    if (reload) {
-        window.location.reload(true);
     }
 }
 
