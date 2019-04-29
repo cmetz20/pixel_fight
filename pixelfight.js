@@ -21,7 +21,7 @@ window.onload = function () {
     }
     currentUpdateID = getIntitialUpdateID();
     setInterval(gridChangeCheck, 500);
-}
+};
 
 async function sendBoardRequest(first) {
     try {
@@ -50,6 +50,7 @@ async function btnClick(event) {
     try {
         // this.id = current btn and also point val in database
         let message = this.id + getColorSelection();
+        console.log(message);
         const resp = await fetch("./pixelfight-api.php", {
             method: "POST",
             headers: {
@@ -59,7 +60,7 @@ async function btnClick(event) {
             body: message
         });
         var data = await resp.json();
-        console.log(data.body);
+        console.log(data);
         sendBoardRequest();
     } catch (err) {
         console.log(err);
