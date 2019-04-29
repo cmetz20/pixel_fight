@@ -66,7 +66,6 @@ async function gridChangeCheck() {
                 window.location.reload(true);
             }
         }
-        
     } catch (err) {
         console.log(err);
     }

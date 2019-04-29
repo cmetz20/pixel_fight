@@ -16,7 +16,6 @@ if(isset($_GET["update-id"])){
         // for each row in mysql table
         echo json_encode(array("type" => "update-id", 
                                 "body" => strval($row[0])));
-        
     }
 }
 

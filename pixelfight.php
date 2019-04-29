@@ -95,6 +95,13 @@ function incrementButtonDB($decoded){
         echo("<p>Error.</p>");
         echo(mysqli_errno($connection));
     }
+
+    $query = "UPDATE `update-table` SET `update-id` = `update-id` + 1 WHERE *";
+    $result = mysqli_query($connection,$query);
+    if(!$result){
+        echo("<p>Error.</p>");
+        echo(mysqli_errno($connection));
+    }
 }
 
 // Looked up way to check if a POST has been sent to this php file
