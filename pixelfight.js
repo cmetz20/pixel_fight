@@ -61,7 +61,7 @@ async function btnClick(event) {
         });
         var data = await resp.json();
         console.log(data);
-        sendBoardRequest();
+        //sendBoardRequest();
     } catch (err) {
         console.log(err);
     }
