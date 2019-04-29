@@ -7,4 +7,3 @@
     <body>
         <h1>Pixel Fight!</h1>
         <p hidden id="board-version">#</p>
-        
