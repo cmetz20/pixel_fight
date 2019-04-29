@@ -71,7 +71,7 @@ async function getUpdateID() {
         var data = await resp.json();
         currentUpdateID = data.body;
         document.getElementById("board-version").innerHTML = currentUpdateID;
-        setInterval(gridChangeCheck, 1000);
+        
     } catch (err) {
         console.log(err);
     }
