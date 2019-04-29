@@ -54,13 +54,14 @@ function btnClick(event) {
 // function is called every second, checking last ID
 // for grid update. Only has to check an INT
 // rather than reupdating all the time for no reason.
-function gridChangeCheck() {
+async function gridChangeCheck() {
     let reload = false;
-    fetch("./pixelfight-api.php?update-id=" + currentUpdateID)
-        .then(response = response.json())
-        .then(function(response){
-            console.log(response);
-        });
+    try {
+        const resp = await fetch("./pixelfight-api.php?update-id=" + currentUpdateID);
+        console.log(resp);
+    } catch (err) {
+        console.log(err);
+    }
     if (reload) {
         window.location.reload(true);
     }
