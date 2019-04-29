@@ -84,10 +84,7 @@ async function gridChangeCheck() {
             const resp = await fetch("./pixelfight-api.php?update-id");
             var data = await resp.json();
             if(data.type === "update-id"){
-                if(data.body === currentUpdateID){
-                    console.log("No updates to DB");
-                }
-                else{
+                if(data.body !== currentUpdateID){
                     sendBoardRequest();
                 }
             }
