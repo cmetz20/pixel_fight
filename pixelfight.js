@@ -37,7 +37,7 @@ async function sendBoardRequest(){
                 buttons[i].className = data[i];
             }
         }
-        setInterval(gridChangeCheck, 1000);
+        setInterval(gridChangeCheck, 500);
     } catch (err) {
         console.log(err);
     }
