@@ -16,7 +16,7 @@ window.onload = function () {
 function registerInputs(){
     let inputs = document.getElementsByTagName("input");
     for(let i = 0; i < inputs.length; i++){
-        inputs[i].onclick = setColor();
+        inputs[i].onclick = setColor;
     }
 }
 
