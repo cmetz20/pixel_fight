@@ -57,8 +57,8 @@ function btnClick(event) {
 function gridChangeCheck() {
     let reload = false;
     fetch("./pixelfight-api.php?update-id=" + currentUpdateID)
-        .then(function (response) {
-            let returnedJSON = response;
+        .then(function(response) {
+            let returnedJSON = JSON.parse(response);
             console.log(returnedJSON);
         });
     if (reload) {
