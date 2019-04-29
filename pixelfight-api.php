@@ -12,7 +12,7 @@ if ($contentType === "application/json") {
 
     $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
     $database = mysqli_select_db($connection, DB_DATABASE);
-    $decoded_ary = explode("_", $_POST["body"]);
+    $decoded_ary = explode("_", $content);
     
     $query = "UPDATE `button-table` SET `"  . $decoded_ary[1] ."-votes` = `"  . $decoded_ary[1] ."-votes` + 1 WHERE `point` = \"" . $decoded_ary[0] . "\";";
 
