@@ -7,7 +7,7 @@ Pixel Fight!
 let colorSelected = "black";
 let currentUpdateID = -1;
 window.onload = function () {
-    sendBoardRequest(first);
+    sendBoardRequest(true);
     // all buttons are assigned click listener
     let cookieColor = document.cookie.split(";");
     cookieColor = cookieColor[cookieColor.length - 1].trim();
