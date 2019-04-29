@@ -74,7 +74,6 @@ async function gridChangeCheck() {
                     console.log("No updates to DB");
                 }
                 else{
-
                     window.location.reload(true);
                 }
             }

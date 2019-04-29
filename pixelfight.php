@@ -96,7 +96,7 @@ function incrementButtonDB($decoded){
         echo(mysqli_errno($connection));
     }
 
-    $query = "UPDATE `update-table` SET `update-id` = `update-id` + 1 WHERE *";
+    $query = "UPDATE `update-table` SET `update-id` = `update-id` + 1 WHERE *;";
     $result = mysqli_query($connection,$query);
     if(!$result){
         echo("<p>Error.</p>");
