@@ -19,7 +19,7 @@ CREATE TABLE `button-table` (
 	`pink-votes` INT DEFAULT 0,
 	PRIMARY KEY (`point`)
 );
-INSERT INTO `update-table` (update-id) VALUES(1);
+INSERT INTO `update-table` VALUES(1);
 INSERT INTO `button-table` (point) VALUES("btn-0-0");
 INSERT INTO `button-table` (point) VALUES("btn-0-1");
 INSERT INTO `button-table` (point) VALUES("btn-0-2");
