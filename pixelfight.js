@@ -54,6 +54,7 @@ async function getIntitialUpdateID(){
         const resp = await fetch("./pixelfight-api.php?update-id");
         var data = await resp.json();
         currentUpdateID = data.body;
+        document.getElementById("board-version").innerHTML = currentUpdateID;
         setInterval(gridChangeCheck, 1000);
     } catch (err) {
         console.log(err);
