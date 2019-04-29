@@ -19,7 +19,7 @@ window.onload = function () {
         document.getElementById(cookieColor).checked = true;
         setColor(cookieColor);
     }
-    currentUpdateID = getIntitialUpdateID();
+    getUpdateID();
     setInterval(gridChangeCheck, 500);
 };
 
@@ -33,10 +33,10 @@ async function sendBoardRequest(first) {
                 buttons[i].className = data[i];
             }
             if (first) {
-                console.log("onclick set");
                 buttons[i].onclick = btnClick;
             }
         }
+        getUpdateID();
     } catch (err) {
         console.log(err);
     }
@@ -59,14 +59,13 @@ async function btnClick(event) {
             body: message
         });
         var data = await resp.json();
-        console.log(data);
-        //sendBoardRequest();
+        sendBoardRequest();
     } catch (err) {
         console.log(err);
     }
 }
 
-async function getIntitialUpdateID() {
+async function getUpdateID() {
     try {
         const resp = await fetch("./pixelfight-api.php?update-id");
         var data = await resp.json();
