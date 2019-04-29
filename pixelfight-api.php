@@ -1,6 +1,27 @@
 <?php
 include("../inc/dbinfo.inc");
 
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["body"])){
+    $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
+    $database = mysqli_select_db($connection, DB_DATABASE);
+    $decoded_ary = explode("_", $_POST["body"]);
+    
+    $query = "UPDATE `button-table` SET `"  . $decoded_ary[1] ."-votes` = `"  . $decoded_ary[1] ."-votes` + 1 WHERE `point` = \"" . $decoded_ary[0] . "\";";
+
+    $result = mysqli_query($connection,$query);
+    if(!$result){
+        echo("<p>Error.</p>");
+        echo(mysqli_errno($connection));
+    }
+
+    $query = "UPDATE `update-table` SET `update-id` = `update-id` + 1 WHERE `update-id` = `update-id`;";
+    $result = mysqli_query($connection,$query);
+    if(!$result){
+        echo("<p>Error.</p>");
+        echo(mysqli_errno($connection));
+    }
+}
+
 if(isset($_GET["update-id"])){
     $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
     $database = mysqli_select_db($connection, DB_DATABASE);
